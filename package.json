@@ -1,0 +1,23 @@
+{
+  "name": "vase-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiqur/vase-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tiqur/vase-backend/issues"
+  },
+  "homepage": "https://github.com/Tiqur/vase-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
