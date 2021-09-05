@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const ObjectId = Schema.ObjectId;
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
 const clusterSchema = new Schema({
   id: ObjectId,

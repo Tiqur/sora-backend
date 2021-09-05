@@ -6,6 +6,7 @@ const router = express.Router();
 const Cluster = mongoose.model('Cluster', clusterSchema);
 
 router.post('/', async (req, res) => {
+  console.log(req.body);
   res.sendStatus(200);
 });
 
