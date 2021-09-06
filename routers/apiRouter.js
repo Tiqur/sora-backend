@@ -6,7 +6,17 @@ const router = express.Router();
 const Cluster = mongoose.model('Cluster', clusterSchema);
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
+  if (req.body) {
+    for (const c in req.body) {
+      const b = req.body[c];
+      const [seed, chunks, coords, repr, size] = [b.seed, b.chunks, b.coords, b.repr, b.size]
+
+      console.log(repr);
+      const cluster = new Cluster({seed, coords, chunks, repr, size});
+      cluster.save();
+      
+    }
+  }
   res.sendStatus(200);
 });
 
