@@ -7,7 +7,6 @@ const clusterSchema = new Schema({
   seed: String,
   coordinates: {x: Number, z: Number},
   chunks: [{x: Number, z: Number}],
-  repr: String,
   size: Number
 });
 
