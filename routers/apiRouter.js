@@ -31,8 +31,8 @@ router.get('/', async (req, res) => {
         const last_ping = connected_users[k];
         const time_since_last_ping = current_time - last_ping;
 
-      // If time between greater than 30 seconds
-      if (time_since_last_ping >= 30000) {
+      // If time between greater than 5 seconds
+      if (time_since_last_ping >= 5000) {
           delete connected_users[k];
       }
     }
