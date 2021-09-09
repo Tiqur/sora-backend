@@ -4,6 +4,7 @@ const clusterSchema = require('../models/cluster');
 const router = express.Router();
 
 const Cluster = mongoose.model('Cluster', clusterSchema);
+const connected_users = {}
 
 router.post('/', async (req, res) => {
   if (req.body) {
@@ -19,5 +20,29 @@ router.post('/', async (req, res) => {
   }
   res.sendStatus(200);
 });
+
+router.get('/', async (req, res) => {
+  const username = req.body.user;
+  if (username) {
+    const current_time = Date.now();
+
+    // Remove ip if no ping for x amount of time
+    for (const k in connected_users) {
+        const last_ping = connected_users[k];
+        const time_since_last_ping = current_time - last_ping;
+
+      // If time between greater than 30 seconds
+      if (time_since_last_ping >= 30000) {
+          delete connected_users[k];
+      }
+    }
+
+    connected_users[username] = Date.now();
+
+    console.log(connected_users)
+    res.send(Object.keys(connected_users));
+  }
+})
+
 
 module.exports = router;
